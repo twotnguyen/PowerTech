@@ -99,3 +99,5 @@ query.sql
 gallery.json
 products_*.json
 create_missing_dirs.py
+appsettings.json
+appsettings.Development.json

@@ -1,123 +1,171 @@
-# PowerTech - E-Commerce cho Linh Kiện Máy Tính
+# ⚡ PowerTech - Hệ thống E-Commerce Bán Lẻ Thiết Bị Công Nghệ
 
-PowerTech là một hệ thống thương mại điện tử chuyên nghiệp được thiết kế đặc biệt cho lĩnh vực bán lẻ linh kiện máy tính, PC build và các thiết bị công nghệ (Retail-Tech). Hệ thống giúp quản lý toàn diện quy trình từ trưng bày sản phẩm, bán hàng đến quản lý kho và chăm sóc khách hàng.
+> PowerTech là một nền tảng thương mại điện tử chuyên nghiệp, được tinh chỉnh đặc biệt cho lĩnh vực bán lẻ linh kiện máy tính, PC Build và thiết bị công nghệ (Retail-Tech). Hệ thống mang đến giải pháp chuyển đổi số toàn diện, tối ưu hóa quy trình quản lý từ hiển thị sản phẩm, bán hàng, đến quản lý kho bãi và hỗ trợ chăm sóc khách hàng.
 
-## Mục lục
+![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?style=flat&logo=dotnet)
+![SQL Server](https://img.shields.io/badge/SQL_Server-CC292B?style=flat&logo=microsoftsqlserver&logoColor=white)
 
-- [Giới thiệu](#giới-thiệu)
-- [Tính năng](#tính-năng)
-- [Công nghệ sử dụng](#công-nghệ-sử-dụng)
-- [Cài đặt](#cài-đặt)
-- [Cách sử dụng](#cách-sử-dụng)
-- [Cấu trúc thư mục](#cấu-trúc-thư-mục)
-- [Cấu hình môi trường](#cấu-hình-môi-trường)
-- [Scripts / Commands](#scripts--commands)
-- [API / Demo](#api--demo)
-- [Đóng góp](#đóng-góp)
-- [License](#license)
-- [Liên hệ](#liên-hệ)
+---
 
-## Giới thiệu
+## 📑 Mục lục
 
-Dự án PowerTech ra đời nhằm cung cấp một giải pháp phần mềm hoàn chỉnh cho các cửa hàng, doanh nghiệp kinh doanh linh kiện máy tính. Mục tiêu là số hóa các hoạt động bán lẻ, từ việc khách hàng mua sắm trực tuyến cho đến các hoạt động nghiệp vụ nội bộ như quản lý kho bãi, bán hàng tại quầy (POS), và hỗ trợ khách hàng. Đối tượng sử dụng bao gồm khách hàng mua sắm trực tuyến, nhân viên bán hàng, nhân viên kho, nhân viên chăm sóc khách hàng và ban giám đốc. Dự án này được thực hiện trong khuôn khổ đồ án môn học.
+- [🌟 Giới thiệu](#-giới-thiệu)
+- [✨ Tính năng nổi bật](#-tính-năng-nổi-bật)
+- [🛠 Công nghệ sử dụng](#-công-nghệ-sử-dụng)
+- [🚀 Hướng dẫn cài đặt](#-hướng-dẫn-cài-đặt)
+- [💻 Cách chạy dự án](#-cách-chạy-dự-án)
+- [📁 Cấu trúc dự án](#-cấu-trúc-dự-án)
+- [🤝 Đóng góp](#-đóng-góp)
 
-## Tính năng
+---
 
-Hệ thống được chia thành 6 phân hệ (Areas) với cơ chế phân quyền (Role-based access control) chặt chẽ:
+## 🌟 Giới thiệu
 
-- **Storefront (Hiển thị công khai)**
-  - Trang chủ linh động (Banners, Sản phẩm nổi bật/mới/sale).
-  - Danh sách sản phẩm với bộ lọc phức hợp (Danh mục, Thương hiệu, Phân khúc giá, Sắp xếp).
-  - Trang chi tiết hiển thị Specs, Gallery ảnh và trạng thái tồn kho thực tế.
-- **Customer Area (Khách hàng)**
-  - Quản lý hồ sơ, thẻ thông tin cá nhân và sổ địa chỉ giao hàng.
-  - Quản lý giỏ hàng & quy trình thanh toán (Checkout flow).
-  - Lịch sử mua hàng, trạng thái đơn và tính năng Hủy đơn.
-- **Sales Area (Nhân viên Bán hàng)**
-  - Dashboard xử lý đơn hàng.
-  - POS (Tạo đơn hàng tại quầy nhanh chóng).
-- **Warehouse Area (Nhân viên Kho)**
-  - Quản lý danh mục hàng hóa vật lý, thống kê tồn kho, cảnh báo sắp hết hàng.
-  - Thực hiện phiếu nhập kho (Ghi nhận Lịch sử/Audit Trail).
-- **Support Area (Nhân viên CSKH)**
-  - Hệ thống quản lý khiếu nại & vé hỗ trợ (Support Tickets).
-  - Kiểm duyệt đánh giá (Reviews) từ người dùng.
-- **Admin Panel (Ban Giám Đốc / Quản trị viên)**
-  - Quản lý toàn hệ thống, Master Data: Category, Brand, Product, Spec...
-  - Quản lý Người dùng & Cơ cấu tổ chức (Phân quyền Roles linh hoạt).
+PowerTech được xây dựng với mục tiêu cung cấp giải pháp phần mềm hoàn chỉnh cho các doanh nghiệp kinh doanh linh kiện điện tử. Thay vì chỉ là một website bán hàng đơn thuần, PowerTech đóng vai trò như một hệ thống quản trị nội bộ ERP thu nhỏ với các module nghiệp vụ chuyên biệt:
 
-## Công nghệ sử dụng
+- **Dành cho Khách hàng:** Trải nghiệm mua sắm mượt mà, bộ lọc thông minh, quản lý đơn hàng chuyên nghiệp.
+- **Dành cho Nhân viên:** Công cụ POS bán hàng tại quầy, quản lý xuất nhập kho bãi, và hệ thống xử lý vé hỗ trợ (Support Tickets).
+- **Dành cho Quản lý:** Báo cáo thống kê, kiểm soát nhân sự, phân quyền bảo mật chặt chẽ.
 
-- **Frontend:** HTML5, Vanilla CSS (Thiết kế độc quyền Retail-Tech theme), JavaScript (ES6+).
-- **Backend:** ASP.NET Core MVC (Version 9.0).
-- **Database:** Microsoft SQL Server, Entity Framework Core (Tiếp cận Code First - Synchronized với DB có sẵn).
-- **Khác:** ASP.NET Core Identity (Role-based & Multiple Roles), Dotnet CLI.
+> [!NOTE]
+> Dự án này được phát triển dưới dạng đồ án môn học với tiêu chuẩn code và kiến trúc sát với thực tế doanh nghiệp.
 
-## Cài đặt
+---
+
+## ✨ Tính năng nổi bật
+
+Hệ thống được thiết kế theo kiến trúc Modules, chia thành 6 phân hệ (Areas) với hệ thống phân quyền (Role-Based Access Control) độc lập:
+
+### 1. Storefront (Giao diện người dùng)
+- Giao diện (UI) mang phong cách Retail-Tech hiện đại.
+- Bộ lọc sản phẩm đa chiều (Danh mục, Thương hiệu, Mức giá...).
+- Hiển thị chi tiết thông số kỹ thuật (Specs) và trạng thái tồn kho thực tế.
+
+### 2. Customer Area (Khách hàng)
+- Quản lý giỏ hàng và thanh toán (Checkout flow).
+- Theo dõi lịch sử đơn hàng, trạng thái vận chuyển và tính năng hủy đơn.
+- Sổ địa chỉ giao hàng và hồ sơ cá nhân.
+
+### 3. Sales Area (Nhân viên Bán hàng)
+- Bảng điều khiển (Dashboard) theo dõi và xử lý đơn hàng trực tuyến.
+- Tính năng POS hỗ trợ tạo đơn hàng nhanh tại cửa hàng.
+
+### 4. Warehouse Area (Nhân viên Kho)
+- Quản lý danh mục hàng hóa, theo dõi tồn kho và cảnh báo hết hàng.
+- Xử lý các phiếu nhập/xuất kho với Audit Trail (lịch sử sửa đổi) rõ ràng.
+
+### 5. Support Area (Nhân viên CSKH)
+- Quản lý khiếu nại qua hệ thống Support Tickets.
+- Kiểm duyệt và phản hồi các đánh giá (Reviews) từ người dùng.
+
+### 6. Admin Panel (Ban Quản trị)
+- Quản trị toàn bộ dữ liệu gốc (Master Data).
+- Quản lý sơ đồ tổ chức, tài khoản nhân viên và cơ chế phân quyền nâng cao.
+
+---
+
+## 🛠 Công nghệ sử dụng
+
+- **Frontend:** HTML5, CSS3 (Thiết kế độc quyền Retail-Tech Theme), JavaScript ES6+.
+- **Backend:** ASP.NET Core MVC (Target Framework: .NET 10.0).
+- **Cơ sở dữ liệu:** Microsoft SQL Server.
+- **ORM:** Entity Framework Core (Tiếp cận Code First - Migration).
+- **Bảo mật:** ASP.NET Core Identity (Multiple Roles & Claims).
+
+---
+
+## 🚀 Hướng dẫn cài đặt
+
+Làm theo các bước sau để thiết lập môi trường và chạy dự án ở local.
+
+### 1. Yêu cầu hệ thống
+- [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) trở lên.
+- [Microsoft SQL Server](https://www.microsoft.com/vi-vn/sql-server/sql-server-downloads) (hoặc SQL Server Express).
+- IDE khuyên dùng: Visual Studio 2022, Rider hoặc VS Code.
+
+### 2. Clone dự án
 
 ```bash
-git clone <repo-url>
-cd PowerTech
+git clone https://github.com/TwotNguyenVN/PowerTech.git
+cd PowerTech/PowerTech
+```
+
+### 3. Khôi phục các gói phụ thuộc (Restore dependencies)
+
+```bash
 dotnet restore
-dotnet build
 ```
 
-## Cách sử dụng
+### 4. Khôi phục Cơ sở dữ liệu (Restore Database)
 
-Sau khi cài đặt xong, bạn có thể chạy dự án bằng lệnh:
-```bash
-dotnet run
-```
-Trang web sẽ được chạy trên trình duyệt tại địa chỉ `http://localhost:5000` hoặc `https://localhost:5001`.
-Hệ thống sử dụng cơ chế Tự động Seed dữ liệu. Bảng cấu hình và dữ liệu mẫu sẽ được tự tạo trong lần khởi chạy đầu tiên nếu Database chưa tồn tại.
+Dự án đã có sẵn toàn bộ dữ liệu mẫu và cấu trúc bảng. Bạn cần chạy script từ file `data.sql` để khởi tạo:
+1. Mở SQL Server Management Studio (SSMS) hoặc công cụ quản trị SQL tương tự.
+2. Kết nối tới SQL Server của bạn.
+3. Mở file `data.sql` (nằm ở thư mục gốc của dự án) và nhấn **Execute** để chạy toàn bộ lệnh.
 
-## Cấu trúc thư mục
+### 5. Cấu hình Chuỗi Kết Nối (Connection String)
 
-- `/Areas/`: Chứa các module nghiệp vụ tách biệt (Admin, Store, Sales, Warehouse, Support, Customer). Mỗi Area có `Controllers` và `Views` riêng.
-- `/Models/Entities/`: Lớp Models mapped với Database.
-- `/Models/ViewModels/`: DTOs (Data Transfer Objects) chuyên biệt để render View, tránh rò rỉ Entity.
-- `/Data/`: DbContext và các logic Migration, Seeding Data.
-- `/wwwroot/`: Chứa các tài sản Front-end (CSS, JS) và thư viện ảnh (`/images/`, `/uploads/`).
-
-## Cấu hình môi trường
-
-Mở file `PowerTech/appsettings.json` và cập nhật `DefaultConnection` trỏ tới hệ thống SQL Server của bạn. Đảm bảo thêm `TrustServerCertificate=True` nếu dùng localhost.
+Sau khi Database đã tạo thành công, bạn cần cấu hình chuỗi kết nối trong source code:
+1. Tìm file `appsettings.example.json` trong thư mục `PowerTech`.
+2. Đổi tên (hoặc copy) file này thành `appsettings.json`.
+3. Mở file `appsettings.json` và điền đường dẫn thật của SQL Server vào chuỗi `DefaultConnection`.
 
 Ví dụ:
 ```json
-"ConnectionStrings": {
-  "DefaultConnection": "Server=localhost;Database=PowerTechDb;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True"
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=TEN_MAY_CHU_CUA_BAN;Database=TEN_DATABASE;User Id=sa;Password=MAT_KHAU_CUA_BAN;Encrypt=True;TrustServerCertificate=True"
+  }
 }
 ```
 
-## Scripts / Commands
+> [!IMPORTANT]
+> - Thay thế các giá trị viết hoa bằng thông tin SQL Server thực tế của bạn.
+> - Đảm bảo giữ nguyên cờ `TrustServerCertificate=True` nếu chạy ở môi trường localhost để tránh lỗi SSL.
 
-Các lệnh thao tác cơ bản với dự án:
+---
 
-- **Khôi phục các gói phụ thuộc:** `dotnet restore`
-- **Biên dịch dự án:** `dotnet build`
-- **Chạy dự án:** `dotnet run`
-- **Tạo migration mới:** `dotnet ef migrations add <MigrationName>`
-- **Cập nhật database:** `dotnet ef database update`
+## 💻 Cách chạy dự án
 
-## API / Demo
+Sau khi đã cài đặt và cấu hình Database thành công, khởi động Web Server bằng lệnh:
 
-*(Hiện tại dự án đang sử dụng kiến trúc MVC truyền thống, phần API và Link Demo trực tuyến sẽ được cập nhật sau)*
+```bash
+dotnet run
+```
 
-## Đóng góp
+- Website sẽ tự động lắng nghe trên cổng: `http://localhost:5000` hoặc `https://localhost:5001`.
+- Mở trình duyệt và truy cập vào địa chỉ trên để xem dự án.
 
-Nếu bạn muốn đóng góp cho dự án, vui lòng:
+---
 
-1. Fork kho lưu trữ
-2. Tạo một nhánh mới (`git checkout -b feature/AmazingFeature`)
-3. Commit những thay đổi của bạn (`git commit -m 'Add some AmazingFeature'`)
-4. Push lên nhánh đó (`git push origin feature/AmazingFeature`)
-5. Mở một Pull Request
+## 📁 Cấu trúc dự án
 
-## License
+```text
+PowerTech/
+├── Areas/                   # Các phân hệ nghiệp vụ (Admin, Store, Sales, Warehouse...)
+├── Controllers/             # Các Controllers dùng chung hoặc Storefront chính
+├── Data/                    # DbContext, Migrations và logic Seeding
+├── Models/
+│   ├── Entities/            # Domain Models / Bảng CSDL
+│   └── ViewModels/          # Data Transfer Objects (DTO) để bind data cho View
+├── Views/                   # Giao diện chính của hệ thống
+├── wwwroot/                 # Tài nguyên tĩnh (CSS, JS, Images, Uploads...)
+├── appsettings.json         # File cấu hình môi trường
+└── Program.cs               # Entry point & Cấu hình Services/Middleware
+```
 
-Dự án thực hiện cho đồ án môn học. Các hình ảnh minh họa thuộc về nhà cung cấp/hãng nguyên bản (ASUS, Intel, NVIDIA...).
+---
 
-## Liên hệ
+## 🤝 Đóng góp (Contributing)
 
-Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ qua email hoặc tạo Issue trên Github.
+PowerTech rất hoan nghênh sự đóng góp từ bạn! Để đóng góp, vui lòng làm theo các bước:
+
+1. **Fork** repo này về tài khoản của bạn.
+2. Tạo một branch mới: `git checkout -b feature/TenChucNang`.
+3. Commit các thay đổi: `git commit -m 'Thêm tính năng TenChucNang'`.
+4. Push branch lên Github: `git push origin feature/TenChucNang`.
+5. Tạo một **Pull Request** mới.
+
+---
+
+*Developed by PowerTech Team. Mọi hình ảnh minh họa thuộc bản quyền của các hãng công nghệ.*

@@ -41,7 +41,7 @@ namespace PowerTech.Areas.Support.Controllers
             {
                 query = query.Where(r => 
                     (r.Product != null && r.Product.Name.Contains(q)) || 
-                    (r.User != null && r.User.FullName.Contains(q)) ||
+                    (r.User != null && r.User.FullName != null && r.User.FullName.Contains(q)) ||
                     (r.Comment != null && r.Comment.Contains(q)));
                 ViewBag.SearchTerm = q;
             }
