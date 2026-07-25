@@ -21,8 +21,14 @@ bld/
 
 # Visual Studio 2015/2017/2019/2022 cache/options directory
 .vs/
-# Uncomment if you use Visual Studio Code
-.vscode/
+
+# VS Code files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
 
 # User-specific files
 *.rsuser
@@ -47,14 +53,6 @@ Desktop.ini
 # Recycle Bin used on secondary drives
 $RECYCLE.BIN/
 
-# VS Code files
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
-
 # .NET Core
 project.lock.json
 project.fragment.lock.json
@@ -62,11 +60,6 @@ artifacts/
 
 # ASP.NET Core
 wwwroot/lib/
-
-# User-specific files
-*.user
-*.userosscache
-*.sln.docstates
 
 # Database files
 *.db
@@ -77,6 +70,7 @@ wwwroot/lib/
 .DS_Store
 .AppleDouble
 .LSOverride
+Icon
 
 # Node.js
 node_modules/
@@ -100,11 +94,9 @@ gallery.json
 products_*.json
 create_missing_dirs.py
 
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-
 # Others
 *.log
+
+# Ignore local settings
+appsettings.json
+appsettings.Development.json
