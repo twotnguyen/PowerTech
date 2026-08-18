@@ -100,3 +100,4 @@ create_missing_dirs.py
 # Ignore local settings
 appsettings.json
 appsettings.Development.json
+data.sql
